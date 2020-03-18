@@ -1,6 +1,8 @@
 package com.example.mvvm_demo.model;
 
-public class Model {
+import java.util.Observable;
+
+public class Model extends Observable {
     private CharSequence text;
 
     public CharSequence getText() {
@@ -9,5 +11,7 @@ public class Model {
 
     public void setText(CharSequence text) {
         this.text = text;
+        setChanged();
+        notifyObservers();
     }
 }
